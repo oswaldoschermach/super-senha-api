@@ -1,0 +1,31 @@
+server:
+  port: 8080 # Porta em que a aplicação vai rodar
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:65432/supersenha_db
+    username: supersenha_user
+    password: 10203040
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update # Cria/atualiza as tabelas automaticamente com base nas entidades
+    show-sql: true     # Exibe as queries no console
+    properties:
+      hibernate:
+        format_sql: true # Formata as queries para facilitar leitura
+
+  jackson:
+    serialization:
+      indent_output: true # JSON bonito (indentado) na resposta da API
+
+  docker:
+    compose:
+      enabled: false # Ignora integração com Docker Compose
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
